@@ -4,6 +4,22 @@ import (
 	"math"
 )
 
+type Node struct {
+	weight []float64
+	bias   float64
+}
+
+func (n *Node)classifier(X []float64)[]float64{
+
+	Y := make([]float64, len(X))
+
+	for i, x := range X{
+		Y[i] = x *  n.weight[i] + bias
+	}
+
+	return Y
+}
+
 func softmax(X []float64) []float64 {
 
 	Y := make([]float64, len(X))
