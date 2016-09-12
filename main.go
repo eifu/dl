@@ -1,6 +1,7 @@
 package main
 
 import (
+	"./lib/dl"
 	"./lib/figure"
 	"image/color"
 	"image/png"
@@ -11,8 +12,15 @@ func main() {
 
 	c := figure.Coords()
 	clr := color.RGBA{0x00, 0x00, 0x00, 0xFF}
-	for i := 0; i < 100; i++ {
-		c.SetColorAt(i, i, clr)
+
+	for i := -100; i < 100; i++ {
+
+		point := dl.Point{
+			X: int(rand.Float64()*201) - 101,
+			Y: int(rand.Float64()*201) - 101,
+		}
+
+		c.SetColorAt(point.X, point.Y, clr)
 	}
 
 	a := 2
