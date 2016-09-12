@@ -14,7 +14,7 @@ func (n *Node)classifier(X []float64)[]float64{
 	Y := make([]float64, len(X))
 
 	for i, x := range X{
-		Y[i] = x *  n.weight[i] + bias
+		Y[i] = x *  n.weight[i] + n.bias
 	}
 
 	return Y
