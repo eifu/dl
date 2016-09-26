@@ -29,7 +29,7 @@ func (c *Canvas) Drawfunc(a, b int) {
 	width, height := c.getWidthHeight()
 	for y := -height / 2; y < height/2; y++ {
 		for x := -width / 2; x < width/2; x++ {
-			if y == a*x+b {
+			if a*x+b-1 <= y && y <= a*x+b+1 {
 				c.SetColorAt(x, y, color.RGBA{0x24, 0x6D, 0xB7, 0xFF})
 			}
 		}
