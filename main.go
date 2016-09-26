@@ -1,12 +1,15 @@
 package main
 
 import (
-	"./lib/dl"
+	// "./lib/dl"
 	"./lib/figure"
 	"image/color"
+	"math/rand"
 	"image/png"
 	"os"
 )
+
+
 
 func main() {
 
@@ -15,12 +18,12 @@ func main() {
 
 	for i := -100; i < 100; i++ {
 
-		point := dl.Point{
+		point := figure.Point{
 			X: int(rand.Float64()*201) - 101,
 			Y: int(rand.Float64()*201) - 101,
 		}
 
-		c.SetColorAt(point.X, point.Y, clr)
+		c.SetPointAt(point.X, point.Y, clr)
 	}
 
 	a := 2

@@ -9,6 +9,10 @@ type Canvas struct {
 	myRGBA *image.RGBA
 }
 
+type Point struct{
+	X, Y int
+}
+
 func Coords() *Canvas {
 	width, height := 201, 201
 	img := image.NewRGBA(image.Rect(0, 0, width, height))
@@ -43,6 +47,18 @@ func (c *Canvas) SetColorAt(x, y int, color color.RGBA) {
 	var i *image.RGBA = c.myRGBA
 
 	i.SetRGBA(x+width/2, -(y - height/2), color)
+}
+
+func (c * Canvas) SetPointAt(x, y int, color color.RGBA){
+	width, height := c.getWidthHeight()
+	var img *image.RGBA = c.myRGBA
+	for j := -(y - height/2) -1; j < -(y - height/2) + 1; j++{
+		for i := x+width/2 -1; i < x+width/2 + 1; i ++{
+			if 0 <= j && j < height && 0 <= i && i < width{			 	
+				img.SetRGBA(i, j, color)	
+			}
+		}
+	}
 }
 
 func (c *Canvas) GetMyRGBA() *image.RGBA {
